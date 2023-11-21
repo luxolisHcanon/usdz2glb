@@ -1,0 +1,28 @@
+volumes:
+  cache:
+services:
+  app:
+    build: .
+    volumes:
+      - .:/workdir
+    ports:
+      - 8091:8080
+  # backend:
+  #   build:
+  #     context: backend/
+  #     args:
+  #       - GOOGLE_APPLICATION_CREDENTIALS=gcloud_key.secret.json
+  #       - GCLOUD_BUCKET=vimage-image-api-io-tmp24h
+  #   volumes:
+  #     - ./backend:/workdir
+  #     - cache:/root/.cache
+  #     - /root/.config/gcloud:/root/.config/gcloud:ro
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+      
+    
